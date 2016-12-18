@@ -1,0 +1,496 @@
+// out: ../style.css, compress: false
+
+@import "normalize";
+@import "variables";
+@import "mixins";
+
+
+body {
+    font-family: @roboto;
+    font-size: 14px;
+}
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    line-height: 1;
+    margin: 0;
+}
+
+
+.b-container {
+    background: #f7f7f7;
+    .clearfix;
+
+    &__header {
+        background: url("@{img-path}header-bg.jpg") repeat-x;
+    }
+
+    &__slider {
+        background: url("@{img-path}slider.jpg") center no-repeat;
+    }
+
+    &__footer {
+        background: url("@{img-path}footer-bg.png");
+        border-top: 9px solid #171717;
+    }
+}
+
+
+.b-wrapper {
+    width: @wrapper_size;
+    margin: 0 auto;
+}
+
+
+
+
+// Header
+.b-header:extend(.b-wrapper) {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: @roboto_c;
+    height: 123px;
+    line-height: 123px;
+}
+
+
+.b-logo {
+    color: @heading_color;
+    text-decoration: none;
+    font-size: 40px;
+    float: left;
+}
+
+.b-nav {
+    float: right;
+
+    a {
+        text-decoration: none;
+        color: @heading_color;
+        font-size: 16px;
+        margin-left: 20px;
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &.active {
+            color: #1abb9c;
+        }
+
+        &:not(.active):hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+
+
+// Slider
+.b-slider {
+    max-width: 1920px;
+    width: 100%;
+    height: 600px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+
+
+    .b-slider_headings {
+        width: 100%;
+        position: absolute;
+        z-index: 20;
+        text-align: center;
+
+        h1 {
+            color: #f3f3f3;
+            font-size: 40px;
+            font-weight: bold;
+            font-family: @roboto_s;
+            padding-top: 198px;
+        }
+
+        h2 {
+            color: #a8a8a8;
+            font-size: 32px;
+            font-weight: bold;
+            font-family: @roboto_s;
+            padding-top: 45px;
+        }
+    }
+
+
+}
+
+
+
+// Parallax Layers
+.b-layers {
+    position: absolute;
+    left: -20px;
+    z-index: 10;
+
+    .layer {
+
+        &__earth img {
+            position: absolute;
+            top: 360px;
+            left: 240px;
+        }
+
+        &__shuttle img {
+            position: absolute;
+            top: 50px;
+            left: 380px;
+
+            animation-name: shuttle;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-play-state: running;
+            animation-direction: alternate;
+
+            -webkit-animation-name: shuttle;
+            -webkit-animation-duration: 2s;
+            -webkit-animation-timing-function: ease-in-out;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-play-state: running;
+            -webkit-animation-direction: alternate;
+
+        }
+
+        &__comet img {
+            position: absolute;
+            top: -20px;
+            left: 1290px;
+        }
+
+    }
+}
+
+
+// Buttons
+.btn {
+    font-family: @roboto_c;
+    width: 140px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 14px;
+    text-transform: uppercase;
+    display: block;
+    margin: auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 0 #3678a3;
+    text-decoration: none;
+    margin-top: 50px;
+
+    &__blue {
+        .btn-modify(#3f8dbf);
+    }
+
+    &__red {
+        .btn-modify(#D64541);
+    }
+}
+
+
+
+// Benefits
+.b-benefits:extend(.b-wrapper) {
+    border-bottom: 2px solid #dcdcdc;
+    padding: 60px 35px;
+    .clearfix;
+
+    &_item {
+        text-align: center;
+        float: left;
+        width: 240px;
+        margin-left: 45px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:before {
+            content: "";
+            .square(90px);
+            background: url("@{img-path}benefits-sprite.png") no-repeat;
+            display: block;
+            margin: 0 auto;
+        }
+
+        &:nth-child(2):before {
+            background-position: -90px 0;
+        }
+
+        &:nth-child(3):before {
+            background-position: -180px 0;
+        }
+
+        &:nth-child(4):before {
+            background-position: -270px 0;
+        }
+    }
+
+    h3 {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: @roboto_s;
+        color: @heading_color;
+        margin: 25px 0 15px;
+    }
+
+    p {
+        color: #616161;
+        line-height: 24px;
+    }
+}
+
+
+
+
+// Our Works
+.b-works:extend(.b-wrapper) {
+    padding: 60px 0;
+    .clearfix;
+
+    h3 {
+        color: @heading_color;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: @roboto_c;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+    }
+
+    &_list__item {
+        width: 380px;
+        margin-left: 15px;
+        float: left;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        h3 {
+            font-family: @roboto_s;
+            font-weight: bold;
+            font-size: 18px;
+            color: @heading_color;
+            margin: 20px 0 15px;
+        }
+
+        h4 {
+            font-family: @roboto_s;
+            font-weight: normal;
+            font-size: 13px;
+            color: #a8a8a8;
+            margin-bottom: 25px;
+        }
+
+        p {
+            color: #5c5c5c;
+            line-height: 28px;
+        }
+    }
+
+    img {
+        width: 380px;
+        height: 270px;
+    }
+}
+
+
+
+
+// Testimonials
+.b-testimonials {
+    text-align: center;
+    padding: 60px 0;
+
+    h2 {
+        font-family: @roboto_s;
+        font-size: 20px;
+        color: #a1a1a1;
+        font-weight: normal;
+        width: 770px;
+        margin: 0 auto;
+        line-height: 30px;
+
+        &:before {
+            content: "";
+            width: 39px;
+            height: 30px;
+            background: url("@{img-path}ico-quotes.png") center no-repeat;
+            display: block;
+            margin: 0 auto 35px auto;
+        }
+    }
+}
+
+
+
+// Footer
+.b-footer:extend(.b-wrapper) {
+    color: @footer_text_color;
+}
+
+.b-footer-blocks {
+    padding: 40px 0;
+    .clearfix;
+    border-bottom: 1px solid #363636;
+
+    &_item {
+        width: 260px;
+        float: left;
+        margin-left: 43px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    h3 {
+        color: #6c6c6c;
+        font-family: @roboto_c;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    p {
+        line-height: 24px;
+        margin-bottom: 25px;
+    }
+}
+
+.b-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        position: relative;
+        line-height: 24px;
+        margin-bottom: 5px;
+    }
+
+    &__contacts {
+        padding-left: 25px;
+
+        li {
+
+            &:before {
+                content: "";
+                .square(14px);
+                background: url("@{img-path}contacts-sprite.png") no-repeat;
+                display: block;
+                position: absolute;
+                left: -25px;
+                top: 5px;
+            }
+        }
+
+        li:nth-child(2):before {
+            background-position: -14px 0;
+        }
+
+        li:nth-child(3):before {
+            background-position: -28px 0;
+        }
+
+    }
+
+
+    &__twitter {
+        padding-left: 25px;
+
+        li {
+            margin-bottom: 25px;
+
+            &:before {
+                content: "";
+                width: 13px;
+                height: 9px;
+                background: url("@{img-path}ico-twitter.png") no-repeat;
+                display: block;
+                position: absolute;
+                left: -25px;
+                top: 7px;
+            }
+        }
+
+    }
+
+    &__popular-posts {
+
+        li {
+            margin-bottom: 25px;
+        }
+
+        a {
+            color: @footer_text_color;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        time {
+            font-size: 12px;
+            display: block;
+            font-family: @roboto_s;
+        }
+    }
+}
+
+
+.b-copyright {
+    height: 112px;
+
+    p {
+        line-height: 112px;
+    }
+}
+
+
+// Animation
+
+
+
+@keyframes shuttle {
+    from {
+        transform: translateY(5px);
+    }
+
+    to {
+        transform: translateY(-5px);
+    }
+}
+
+@-webkit-keyframes shuttle {
+    from {
+        transform: translateY(5px);
+    }
+
+    to {
+        transform: translateY(-5px);
+    }
+}
+
+
+
+
+
+
+
+
+
+
