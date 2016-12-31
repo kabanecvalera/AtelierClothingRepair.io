@@ -89,110 +89,66 @@ h1, h2, h3, h4, h5, h6, p {
     }
 }
 
-
-
 // Slider
-.b-slider {
-    max-width: 1920px;
-    width: 100%;
+.b-slider:extend(.b-wrapper) {
     height: 600px;
     text-align: center;
-    position: relative;
-    overflow: hidden;
-    margin: 0 auto;
 
-
-    .b-slider_headings {
-        width: 100%;
-        position: absolute;
-        z-index: 20;
-        text-align: center;
-
-        h1 {
-            color: #f3f3f3;
-            font-size: 40px;
-            font-weight: bold;
-            font-family: @roboto_s;
-            padding-top: 198px;
-        }
-
-        h2 {
-            color: #a8a8a8;
-            font-size: 32px;
-            font-weight: bold;
-            font-family: @roboto_s;
-            padding-top: 45px;
-        }
+    h1 {
+        color: #f3f3f3;
+        font-size: 40px;
+        font-weight: bold;
+        font-family: @roboto_s;
+        padding-top: 198px;
     }
 
-
-}
-
-
-
-// Parallax Layers
-.b-layers {
-    position: absolute;
-    left: -20px;
-    z-index: 10;
-
-    .layer {
-
-        &__earth img {
-            position: absolute;
-            top: 360px;
-            left: 240px;
-        }
-
-        &__shuttle img {
-            position: absolute;
-            top: 50px;
-            left: 380px;
-
-            animation-name: shuttle;
-            animation-duration: 2s;
-            animation-timing-function: ease-in-out;
-            animation-iteration-count: infinite;
-            animation-play-state: running;
-            animation-direction: alternate;
-
-            -webkit-animation-name: shuttle;
-            -webkit-animation-duration: 2s;
-            -webkit-animation-timing-function: ease-in-out;
-            -webkit-animation-iteration-count: infinite;
-            -webkit-animation-play-state: running;
-            -webkit-animation-direction: alternate;
-
-        }
-
-        &__comet img {
-            position: absolute;
-            top: -20px;
-            left: 1290px;
-        }
-
+    h2 {
+        color: #a8a8a8;
+        font-size: 32px;
+        font-weight: bold;
+        font-family: @roboto_s;
+        padding-top: 45px;
     }
 }
+
 
 
 // Buttons
+.btn-box{
+    margin-top: 50px;
+}
+
 .btn {
     font-family: @roboto_c;
-    width: 140px;
-    height: 45px;
-    line-height: 45px;
-    font-size: 14px;
     text-transform: uppercase;
-    display: block;
-    margin: auto;
-    border-radius: 4px;
-    box-shadow: 0 4px 0 #3678a3;
+    background: #3498db;
+    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+    background-image: -o-linear-gradient(top, #3498db, #2980b9);
+    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    -webkit-border-radius: 25;
+    -moz-border-radius: 25;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 60px;
     text-decoration: none;
-    margin-top: 50px;
+
 
     &__blue {
         .btn-modify(#3f8dbf);
     }
+    
+    &__blue:hover {
+        background: #397fac;
+        box-shadow: 0 4px 0 #327199;
+}
+    &__blue:active {
+        background: #ff102b;
+        box-shadow: 0 4px 0 #de0728;
+        transition: none;
+}
 
     &__red {
         .btn-modify(#D64541);
